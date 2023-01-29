@@ -1,0 +1,14 @@
+search:
+	default:
+		in: %appDir%
+		classes:
+			- *Factory
+			- *Facade
+
+services:
+	- App\Router\RouterFactory::createRouter
+
+	# Facade
+	- App\Model\Facade\ProductFacade
+
+

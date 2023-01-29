@@ -1,0 +1,9 @@
+parameters:
+
+dbal:
+    connection:
+        host: localhost
+        user: slavka_doctrine
+        password: ******
+        dbname: slavka_doctrine
+        driver: mysqli
