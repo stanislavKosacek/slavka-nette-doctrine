@@ -20,13 +20,14 @@ extensions:
     dbal: Nettrine\DBAL\DI\DbalExtension
     nettrine.cache: Nettrine\Cache\DI\CacheExtension
     nettrine.orm: Nettrine\ORM\DI\OrmExtension
-    nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
-    nettrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+    #nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+    #nettrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+    nettrine.orm.attributes: Nettrine\ORM\DI\OrmAttributesExtension
     console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
     nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
     nettrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
 
-nettrine.orm.annotations:
+nettrine.orm.attributes:
   mapping:
    App\Model\Entity: %appDir%/Model/Entity
 

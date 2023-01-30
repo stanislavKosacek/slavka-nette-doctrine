@@ -2,30 +2,28 @@
 
 namespace App\Model\Entity;
 
+use DateTimeImmutable;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity()
- */
+#[ORM\Entity]
 class Product
 {
-
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     */
+    #[ORM\Id]
+    #[ORM\Column(type: Types::INTEGER)]
+    #[ORM\GeneratedValue]
     private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
+    #[ORM\Column(type: Types::STRING)]
     protected string $name;
 
-    /**
-     * @ORM\Column(type="float", nullable=false)
-     */
+    #[ORM\Column(type: Types::FLOAT)]
     protected float $price;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -51,5 +49,4 @@ class Product
     {
         $this->price = $price;
     }
-
 }
