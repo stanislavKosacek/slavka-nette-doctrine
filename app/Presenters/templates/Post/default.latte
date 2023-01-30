@@ -1,0 +1,26 @@
+
+{block content}
+<div class="container">
+	<header>
+		<h1 n:block=title>Články</h1>
+	</header>
+	<main>
+		<a n:href="addPost" class="btn btn-primary">Přidat</a>
+		<table class="table">
+			{foreach $posts as $post}
+				{varType App\Model\Entity\Post $post}
+				<tr>
+					<td>{$post->getTitle()}</td>
+					<td>{$post->getText()}</td>
+					<td>{$post->getAuthor()->getName()} {$post->getAuthor()->getSurname()}</td>
+					<td>
+						Publikováno: {$post->getIsPublished() ? "Ano" : "Ne"}
+						<a n:href="switchPost! $post->getId()" class="btn btn-primary">Změnit</a>
+					</td>
+					<td><a n:href="deletePost! $post->getId()" class="btn btn-danger">Smazat</a></td>
+				</tr>
+			{/foreach}
+		</table>
+	</main>
+
+</div>

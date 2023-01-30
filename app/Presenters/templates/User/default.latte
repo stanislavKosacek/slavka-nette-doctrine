@@ -1,0 +1,23 @@
+{block content}
+<div class="container">
+	<header>
+		<h1 n:block=title>Uživatel</h1>
+	</header>
+	<main>
+		<a n:href="addUser" class="btn btn-primary">Přidat</a>
+		<table class="table">
+			{foreach $users as $ourUser}
+				{varType App\Model\Entity\User $ourUser}
+				<tr>
+					<td>{$ourUser->getName()}</td>
+					<td>{$ourUser->getSurname()}</td>
+					<td>{$ourUser->getEmail()}</td>
+					<td>
+						{foreach $ourUser->getPosts() as $post}
+							{$post->getTitle()}{sep},{/sep}
+						{/foreach}
+				</tr>
+			{/foreach}
+		</table>
+	</main>
+</div>
